@@ -37,16 +37,7 @@ int main(){
 	if (!((tempc > -0.0001 && tempc < 0.0001) && passes >= 3)) {
 		/* Apply calibrations */
 		tempc = (tempc * scale) + offset;
-
-		struct tm *utc;
-		time_t t;
-		t = time(NULL);
-		utc = gmtime(&t);
-		
-		char dt[80];
-		strftime(dt, 80, "%d-%b-%Y %H:%M", utc);
-
-		printf("%s,%f\n", dt, tempc);
+		printf("%f\n", tempc);
 		fflush(stdout);
 
 		return 0;
