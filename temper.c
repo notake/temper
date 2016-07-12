@@ -32,9 +32,9 @@ int main(){
 	/* Read fails silently with a 0.0 return, so repeat until not zero
 	   or until we have read the same zero value 3 times (just in case
 	   temp is really dead on zero */
-	while ((tempc > -0.0001 && tempc < 0.0001) || passes >= 4);
+	while ((tempc > -0.0001 && tempc < 0.0001) && passes < 3);
 
-	if (!((tempc > -0.0001 && tempc < 0.0001) || passes >= 4)) {
+	if (!((tempc > -0.0001 && tempc < 0.0001) && passes >= 3)) {
 		/* Apply calibrations */
 		tempc = (tempc * scale) + offset;
 
